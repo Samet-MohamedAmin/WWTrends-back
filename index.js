@@ -46,7 +46,7 @@ app.use((err, req, res, next) => {
 
 
 app.use('/api/main', require('./server/routes/main'))
-// app.use('/api/trends', require('./server/routes/trends'))
+app.use('/api/trends/google', require('./server/routes/google-trends'))
 
 
 

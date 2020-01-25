@@ -24,7 +24,12 @@ module.exports = {
     },
 
     async testGoogle(req, res) {
-        const response = await trendsService.findGoogleTrends()
+        let response;
+        try {
+            response = await trendsService.findGoogleTrends()
+        } catch (error) {
+            console.log(error)
+        }
         const testTrends = JSON.parse(response)
 
         res.json(testTrends)
