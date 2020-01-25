@@ -1,25 +1,14 @@
-const trends = require('../models/trends')
+const Trend = require('../models/trends')
 
 
 module.exports = {
     findAll() {
-        return trends.find()
-    },
-
-    findByUserId(userId) {
-        return trends.find({userId: userId})
-    },
-
-    countByUserId(userId) {
-        return trends.countDocuments({userId: userId})
+        return Trend.find()
     },
 
     store(trends) {
-        const _trends = new trends(trends).save()
+        const _trends = new Trend(trends).save()
+        console.log('save trend - services')
         return _trends
     },
-
-    clearCollection() {
-        return trends.deleteMany({})
-    }
 }

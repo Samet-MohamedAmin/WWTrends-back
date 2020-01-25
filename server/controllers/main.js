@@ -14,8 +14,7 @@ module.exports = {
         console.log(value)
 
         trends = {
-            lat: 30,
-            lon: 50
+            name: "test"
         }
         // trendsService.store(trends)
 

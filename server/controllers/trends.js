@@ -1,5 +1,5 @@
 const trendsService = require('../services/trends')
-const trends = require('../models/trends')
+const Trend = require('../models/trends')
 
 
 module.exports = {
@@ -10,26 +10,13 @@ module.exports = {
         res.json(trendsList)
     },
 
-    async findByUserId(req, res) {
-        const userId = req.params.userId.toLowerCase()
-        trendsList = await trendsService.findByUserId(userId)
-        res.json(trendsList)
-    },
-
-    async countByUserId(req, res) {
-        const userId = req.params.userId.toLowerCase()
-        const count = await trendsService.countByUserId(userId)
-        res.json({count: count})
-    },
-
     async save(req, res) {
-        const trends = new trends({...req.body, userId: req.body.userId.toLowerCase()})
+        console.log(req.body)
+        const trends = new Trend({...req.body})
         const _trends = await trendsService.store(trends)
+
+        console.log('save trend - controllers')
+
         res.json(_trends)
     },
-    
-    async clearCollection(req, res) {
-        const result = await trendsService.clearCollection()
-        res.json(result)
-    }
 }

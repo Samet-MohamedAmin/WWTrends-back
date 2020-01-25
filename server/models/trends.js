@@ -5,13 +5,10 @@ mongoose.Promise = Promise
 const Schema = mongoose.Schema
 
 const trendsSchema = Schema({
-    userId: {type: String, required: true, default: 'unknown'},
-    lat: {type: Number, required: true},
-    lon: {type: Number, required: true},
-    acc: {type: Number, required: false},
+    name: {type: String, required: true, default: 'unknown'},
     timestamp: {type: Number, required: false}
 })
 
-const trends = mongoose.model('trends', trendsSchema)
+const Trends = mongoose.model('trends', trendsSchema)
 
-module.exports = trends
+module.exports = Trends
