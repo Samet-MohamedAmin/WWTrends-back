@@ -9,6 +9,7 @@ module.exports = {
 
         res.json(response)
     },
+
     testPost(req, res) {
         value = req.body.value
         console.log(value)
@@ -20,5 +21,12 @@ module.exports = {
 
         const response = {'value': value}
         res.json(response)
+    },
+
+    async testGoogle(req, res) {
+        const response = await trendsService.findGoogleTrends()
+        const testTrends = JSON.parse(response)
+
+        res.json(testTrends)
     }
 }

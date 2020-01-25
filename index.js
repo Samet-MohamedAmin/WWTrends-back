@@ -5,25 +5,25 @@ const cors = require('cors');
 const http = require('http');
 
 /* Setting up developement environment */
-const MONGO_USER = process.env.MONGO_USER;
-const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
-const mongo_url = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@4c-vhflf.gcp.mongodb.net/wwtrends?retryWrites=true&&authSource=admin`;
+// const MONGO_USER = process.env.MONGO_USER;
+// const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
+// const mongo_url = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@4c-vhflf.gcp.mongodb.net/wwtrends?retryWrites=true&&authSource=admin`;
 
 
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
+// mongoose.set('useNewUrlParser', true);
+// mongoose.set('useFindAndModify', false);
+// mongoose.set('useCreateIndex', true);
+// mongoose.set('useUnifiedTopology', true);
 
 
-const connexion = mongoose.connect(mongo_url, function (err) {
-    if (err) {
-        console.log("Problem when connecting to the database");
-    }
-    else {
-        console.log('SUCCESSFULLY connected to mongo');
-    }
-})
+// const connexion = mongoose.connect(mongo_url, function (err) {
+//     if (err) {
+//         console.log("Problem when connecting to the database");
+//     }
+//     else {
+//         console.log('SUCCESSFULLY connected to mongo');
+//     }
+// })
 
 
 const app = express();
@@ -46,7 +46,14 @@ app.use((err, req, res, next) => {
 
 
 app.use('/api/main', require('./server/routes/main'))
-app.use('/api/trends', require('./server/routes/trends'))
+// app.use('/api/trends', require('./server/routes/trends'))
+
+
+
+
+
+
+
 
 
 
