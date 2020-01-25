@@ -7,7 +7,7 @@ const http = require('http');
 /* Setting up developement environment */
 const MONGO_USER = process.env.MONGO_USER;
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
-const mongo_url = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@4c-vhflf.gcp.mongodb.net/metro?retryWrites=true&&authSource=admin`;
+const mongo_url = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@4c-vhflf.gcp.mongodb.net/wwtrends?retryWrites=true&&authSource=admin`;
 
 
 mongoose.set('useNewUrlParser', true);
@@ -46,7 +46,7 @@ app.use((err, req, res, next) => {
 
 
 app.use('/api/main', require('./server/routes/main'))
-app.use('/api/coords', require('./server/routes/coords'))
+app.use('/api/trends', require('./server/routes/trends'))
 
 
 

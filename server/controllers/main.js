@@ -1,11 +1,11 @@
-const coordsService = require('../services/coords')
+const trendsService = require('../services/trends')
 
 module.exports = {
 
     test(req, res) {
         const response = {'test': 'work'}
 
-        coordsService.find(20)
+        // trendsService.find(20)
 
         res.json(response)
     },
@@ -13,11 +13,11 @@ module.exports = {
         value = req.body.value
         console.log(value)
 
-        coords = {
+        trends = {
             lat: 30,
             lon: 50
         }
-        coordsService.store(coords)
+        // trendsService.store(trends)
 
         const response = {'value': value}
         res.json(response)
