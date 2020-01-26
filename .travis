@@ -1,0 +1,26 @@
+language: shell
+os: linux
+services:
+  - docker
+env:
+  global:
+    - SHA=$(git rev-parse HEAD)
+
+before_install:
+  # dockerhub login
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+  # preapare test image
+  - docker build -t $DOCKER_USERNAME/trends-chaser-test -f ./Dockerfile.dev .
+
+
+
+  
+script:
+  - docker run $DOCKER_USERNAME/trends-chaser-test npm test
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master  

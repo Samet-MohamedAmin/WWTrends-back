@@ -51,12 +51,6 @@ app.use('/api/trends/google', require('./server/routes/google-trends'))
 
 
 
-
-
-
-
-
-
 app.use(express.json());
 
 const port = parseInt(process.env.PORT, 10) || 3000;
