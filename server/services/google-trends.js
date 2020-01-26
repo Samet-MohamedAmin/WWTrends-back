@@ -19,6 +19,42 @@ module.exports = {
         return trends
     },
 
+    interestByRegion(keyword) {
+        const query = {
+            keyword: keyword,
+            resolution: 'COUNTRY'
+        }
+
+        const trends = googleTrends.interestByRegion(query)
+
+        return trends
+    },
+
+    realTimeTrends(geo, category) {
+
+        // default calues: `geo=US`, `category=all`
+        const query = {
+            geo: geo,
+            category: category
+        }
+
+        const trends = googleTrends.realTimeTrends(query)
+
+        return trends
+    },
+
+    dailyTrends(date, geo) {
+
+        const query = {
+            date: date,
+            geo: geo
+        }
+
+        const trends = googleTrends.dailyTrends(query)
+
+        return trends
+    },
+
     findGoogleTrends() {
         // categories: https://github.com/pat310/google-trends-api/wiki/Google-Trends-Categories
 
