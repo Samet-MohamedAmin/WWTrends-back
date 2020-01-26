@@ -17,7 +17,7 @@ before_install:
 
   
 script:
-  - docker run $DOCKER_USERNAME/trends-chaser-test npm test
+  - docker run $DOCKER_USERNAME/trends-chaser-test npm run test
 
 deploy:
   provider: script
